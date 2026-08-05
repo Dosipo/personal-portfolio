@@ -1,0 +1,31 @@
+import Link from "next/link"
+
+import { site } from "@/lib/site"
+
+export function Projects() {
+  return (
+    <div id="projects" className="my-8 flex flex-col gap-4">
+      {site.projects.map((project) => (
+        <Link
+          key={project.slug}
+          href={`/projects/${project.slug}`}
+          className="group flex flex-col transition-colors"
+        >
+          <div className="flex w-full flex-col gap-2 md:flex-row">
+            <p className="w-[100px] shrink-0 tabular-nums text-muted-foreground transition-colors group-hover:text-link">
+              {project.year}
+            </p>
+            <div className="flex flex-col gap-1">
+              <p className="tracking-tight text-foreground transition-colors group-hover:text-link">
+                {project.title}
+              </p>
+              <p className="text-sm leading-relaxed text-muted-foreground transition-colors group-hover:text-link">
+                {project.description}
+              </p>
+            </div>
+          </div>
+        </Link>
+      ))}
+    </div>
+  )
+}
