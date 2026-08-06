@@ -2,6 +2,10 @@
 title: Поиск фейков в Бессмертном полку
 date: 2019
 description: Поиск фейков и мемов в Бессмертном полку.
+stack:
+  - Computer Vision
+  - NLP
+  - Moderation
 ---
 
 ## Описание

@@ -5,6 +5,7 @@ import { SiteFooter } from "@/components/site-footer"
 import { ThemeProvider } from "@/components/theme-provider"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { getSite } from "@/lib/site"
+import { getSiteUrl } from "@/lib/url"
 import { cn } from "@/lib/utils"
 
 import "./globals.css"
@@ -22,6 +23,7 @@ const fontMono = JetBrains_Mono({
 const site = getSite()
 
 export const metadata: Metadata = {
+  metadataBase: new URL(getSiteUrl()),
   title: {
     default: site.title,
     template: `%s | ${site.title}`,

@@ -2,6 +2,10 @@
 title: Видео-аналитика для прачечных
 date: 2022
 description: Видео-аналитика для прачечных.
+stack:
+  - Computer Vision
+  - Video Analytics
+  - IoT
 ---
 
 ## Описание

@@ -11,12 +11,28 @@ export type Project = {
   year: string
   title: string
   description: string
+  stack: string[]
   href?: string
   repo?: string
   content: string
 }
 
 export type ProjectMeta = Omit<Project, "content">
+
+function parseStack(value: unknown): string[] {
+  if (Array.isArray(value)) {
+    return value.map(String).map((item) => item.trim()).filter(Boolean)
+  }
+
+  if (typeof value === "string") {
+    return value
+      .split(",")
+      .map((item) => item.trim())
+      .filter(Boolean)
+  }
+
+  return []
+}
 
 function parseProjectFile(slug: string): Project {
   const { data, content } = readMarkdownFile(`projects/${slug}.md`)
@@ -35,6 +51,7 @@ function parseProjectFile(slug: string): Project {
     year: String(parsedDate.getUTCFullYear()),
     title: data.title,
     description: data.description,
+    stack: parseStack(data.stack),
     href: data.href,
     repo: data.repo,
     content: content.trim(),

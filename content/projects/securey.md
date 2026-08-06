@@ -3,6 +3,11 @@ title: securey
 date: 2025
 description: Автопроверка сайтов на требования РКН и соответствие 152-ФЗ.
 href: https://securey.ru/
+stack:
+  - Next.js
+  - TypeScript
+  - LLM
+  - 152-ФЗ
 ---
 
 ## Описание

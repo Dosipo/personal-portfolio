@@ -4,6 +4,7 @@ import { notFound } from "next/navigation"
 import { ArrowUpRightIcon, CodeIcon } from "lucide-react"
 
 import { MarkdownContent } from "@/components/markdown-content"
+import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
 import { getProject, getProjectSlugs } from "@/lib/projects"
 import { getSite } from "@/lib/site"
@@ -46,23 +47,36 @@ export default async function ProjectPage({ params }: PageProps) {
     <section>
       <Link
         href="/#projects"
-        className="mb-8 inline-block text-muted-foreground transition-colors hover:text-link"
+        className="mb-4 inline-block text-sm text-muted-foreground transition-colors hover:text-link"
       >
         {site.labels.back}
       </Link>
 
-      <h1 className="title mb-2 text-2xl font-semibold tracking-tighter">
+      <h1 className="title mb-1 text-2xl font-semibold tracking-tighter">
         {project.title}
       </h1>
-      <p className="mb-8 text-sm tabular-nums text-muted-foreground">
+      <p className="mb-5 text-sm tabular-nums text-muted-foreground">
         {project.year}
       </p>
 
-      <div className="flex flex-col gap-4">
+      {project.stack.length > 0 ? (
+        <div className="mb-5 flex flex-col gap-2">
+          <p className="text-sm text-muted-foreground">{site.labels.stack}</p>
+          <div className="flex flex-wrap gap-1.5">
+            {project.stack.map((item) => (
+              <Badge key={item} variant="secondary">
+                {item}
+              </Badge>
+            ))}
+          </div>
+        </div>
+      ) : null}
+
+      <div>
         <MarkdownContent content={project.content} />
       </div>
 
-      <div className="mt-10 flex flex-wrap gap-2">
+      <div className="mt-6 flex flex-wrap gap-2">
         {project.href ? (
           <a
             href={project.href}

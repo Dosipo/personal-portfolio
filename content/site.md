@@ -9,6 +9,7 @@ labels:
   description: Описание
   role: Роль
   result: Результат
+  stack: Стек
   site: Сайт
   code: Код
   email: почта

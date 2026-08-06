@@ -2,6 +2,10 @@
 title: Фильтрация NSFW
 date: 2022-06-01
 description: Фильтрация NSFW-контента для соцсети.
+stack:
+  - Computer Vision
+  - ML
+  - Moderation
 ---
 
 ## Описание

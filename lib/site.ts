@@ -5,6 +5,7 @@ export type SiteLabels = {
   description: string
   role: string
   result: string
+  stack: string
   site: string
   code: string
   email: string
