@@ -3,8 +3,9 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { ArrowUpRightIcon, CodeIcon } from "lucide-react"
 
+import { ProjectMarkdown } from "@/components/project-markdown"
 import { buttonVariants } from "@/components/ui/button"
-import { getProject, site } from "@/lib/site"
+import { getProject, getProjectSlugs } from "@/lib/projects"
 import { cn } from "@/lib/utils"
 
 type PageProps = {
@@ -12,7 +13,7 @@ type PageProps = {
 }
 
 export function generateStaticParams() {
-  return site.projects.map((project) => ({ slug: project.slug }))
+  return getProjectSlugs().map((slug) => ({ slug }))
 }
 
 export async function generateMetadata({
@@ -79,11 +80,7 @@ export default async function ProjectPage({ params }: PageProps) {
       </div>
 
       <div className="flex flex-col gap-4">
-        {project.body.map((paragraph) => (
-          <p key={paragraph} className="leading-relaxed text-foreground">
-            {paragraph}
-          </p>
-        ))}
+        <ProjectMarkdown content={project.content} />
       </div>
 
       <div className="mt-10 flex flex-wrap gap-2">

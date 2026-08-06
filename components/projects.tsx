@@ -1,11 +1,13 @@
 import Link from "next/link"
 
-import { site } from "@/lib/site"
+import { getProjects } from "@/lib/projects"
 
 export function Projects() {
+  const projects = getProjects()
+
   return (
     <div id="projects" className="my-8 flex flex-col gap-4">
-      {site.projects.map((project) => (
+      {projects.map((project) => (
         <Link
           key={project.slug}
           href={`/projects/${project.slug}`}

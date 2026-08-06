@@ -21,30 +21,34 @@ function ArrowIcon() {
 const footerLinks = [
   { href: `mailto:${site.links.email}`, label: "почта", external: false },
   { href: site.links.telegram, label: "телеграм", external: true },
-  { href: site.links.github, label: "github", external: true },
 ] as const
 
 export function SiteFooter() {
   return (
-    <footer id="contact" className="mb-16 scroll-mt-8">
-      <ul className="mt-8 flex flex-col gap-2 text-sm text-muted-foreground md:flex-row md:gap-4">
-        {footerLinks.map((item) => (
-          <li key={item.label}>
-            <a
-              className="flex items-center gap-2 transition-colors hover:text-link"
-              href={item.href}
-              rel={item.external ? "noopener noreferrer" : undefined}
-              target={item.external ? "_blank" : undefined}
-            >
-              <ArrowIcon />
-              <span className="h-7 leading-7">{item.label}</span>
-            </a>
-          </li>
-        ))}
-      </ul>
-      <p className="mt-8 text-muted-foreground">
-        © {new Date().getFullYear()} {site.name}
-      </p>
+    <footer
+      id="contact"
+      className="mt-16 scroll-mt-8 border-t border-border pt-6 pb-16"
+    >
+      <div className="flex flex-col gap-4 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+        <ul className="flex flex-wrap items-center gap-x-4 gap-y-2">
+          {footerLinks.map((item) => (
+            <li key={item.label}>
+              <a
+                className="inline-flex items-center gap-2 transition-colors hover:text-link"
+                href={item.href}
+                rel={item.external ? "noopener noreferrer" : undefined}
+                target={item.external ? "_blank" : undefined}
+              >
+                <ArrowIcon />
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <p className="shrink-0">
+          © {new Date().getFullYear()} {site.name}
+        </p>
+      </div>
     </footer>
   )
 }
