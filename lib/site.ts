@@ -1,10 +1,40 @@
-export const site = {
-  name: "Даниил Осипов",
-  title: "Моё портфолио",
-  pitch:
-    "Я продакт-менеджер с 6 годами в разработке продуктов на ИИ — генеративные модели и компьютерное зрение. Опыт работы в стартапах, рекламных, исследовательских и технологичных командах. Делаю спокойные быстрые интерфейсы и собираю инструменты, которыми реально приятно пользоваться.",
+import { readMarkdownFile } from "@/lib/content"
+
+export type SiteLabels = {
+  back: string
+  description: string
+  role: string
+  result: string
+  site: string
+  code: string
+  email: string
+  telegram: string
+}
+
+export type Site = {
+  name: string
+  title: string
+  description: string
   links: {
-    email: "Dosipovscience@gmail.com",
-    telegram: "https://t.me/Dosipo",
-  },
+    email: string
+    telegram: string
+  }
+  labels: SiteLabels
+  content: string
+}
+
+export function getSite(): Site {
+  const { data, content } = readMarkdownFile("site.md")
+
+  return {
+    name: data.name,
+    title: data.title,
+    description: data.description,
+    links: {
+      email: data.email,
+      telegram: data.telegram,
+    },
+    labels: data.labels,
+    content: content.trim(),
+  }
 }

@@ -1,9 +1,14 @@
 import Markdown from "react-markdown"
 
-export function ProjectMarkdown({ content }: { content: string }) {
+export function MarkdownContent({ content }: { content: string }) {
   return (
     <Markdown
       components={{
+        h1: ({ children }) => (
+          <h1 className="mb-8 text-2xl font-semibold tracking-tighter text-foreground">
+            {children}
+          </h1>
+        ),
         p: ({ children }) => (
           <p className="leading-relaxed text-foreground">{children}</p>
         ),

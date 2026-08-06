@@ -4,7 +4,7 @@ import { Inter, JetBrains_Mono } from "next/font/google"
 import { SiteFooter } from "@/components/site-footer"
 import { ThemeProvider } from "@/components/theme-provider"
 import { ThemeToggle } from "@/components/theme-toggle"
-import { site } from "@/lib/site"
+import { getSite } from "@/lib/site"
 import { cn } from "@/lib/utils"
 
 import "./globals.css"
@@ -19,12 +19,14 @@ const fontMono = JetBrains_Mono({
   variable: "--font-mono",
 })
 
+const site = getSite()
+
 export const metadata: Metadata = {
   title: {
     default: site.title,
     template: `%s | ${site.title}`,
   },
-  description: site.pitch,
+  description: site.description,
 }
 
 export default function RootLayout({

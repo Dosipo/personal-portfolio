@@ -3,9 +3,10 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { ArrowUpRightIcon, CodeIcon } from "lucide-react"
 
-import { ProjectMarkdown } from "@/components/project-markdown"
+import { MarkdownContent } from "@/components/markdown-content"
 import { buttonVariants } from "@/components/ui/button"
 import { getProject, getProjectSlugs } from "@/lib/projects"
+import { getSite } from "@/lib/site"
 import { cn } from "@/lib/utils"
 
 type PageProps = {
@@ -32,25 +33,9 @@ export async function generateMetadata({
   }
 }
 
-function MetaRow({
-  label,
-  children,
-}: {
-  label: string
-  children: React.ReactNode
-}) {
-  return (
-    <div className="flex flex-col gap-1 sm:flex-row sm:gap-4">
-      <p className="w-28 shrink-0 text-sm text-muted-foreground">{label}</p>
-      <div className="min-w-0 flex-1 text-sm leading-relaxed text-foreground">
-        {children}
-      </div>
-    </div>
-  )
-}
-
 export default async function ProjectPage({ params }: PageProps) {
   const { slug } = await params
+  const site = getSite()
   const project = getProject(slug)
 
   if (!project) {
@@ -63,7 +48,7 @@ export default async function ProjectPage({ params }: PageProps) {
         href="/#projects"
         className="mb-8 inline-block text-muted-foreground transition-colors hover:text-link"
       >
-        ← назад
+        {site.labels.back}
       </Link>
 
       <h1 className="title mb-2 text-2xl font-semibold tracking-tighter">
@@ -73,14 +58,8 @@ export default async function ProjectPage({ params }: PageProps) {
         {project.year}
       </p>
 
-      <div className="mb-10 flex flex-col gap-4 border-b border-border pb-8">
-        <MetaRow label="Описание">{project.description}</MetaRow>
-        <MetaRow label="Роль">{project.role}</MetaRow>
-        <MetaRow label="Результат">{project.result}</MetaRow>
-      </div>
-
       <div className="flex flex-col gap-4">
-        <ProjectMarkdown content={project.content} />
+        <MarkdownContent content={project.content} />
       </div>
 
       <div className="mt-10 flex flex-wrap gap-2">
@@ -94,7 +73,7 @@ export default async function ProjectPage({ params }: PageProps) {
               "hover:border-link hover:text-link"
             )}
           >
-            Сайт
+            {site.labels.site}
             <ArrowUpRightIcon data-icon="inline-end" />
           </a>
         ) : null}
@@ -109,7 +88,7 @@ export default async function ProjectPage({ params }: PageProps) {
             )}
           >
             <CodeIcon data-icon="inline-start" />
-            Код
+            {site.labels.code}
           </a>
         ) : null}
       </div>

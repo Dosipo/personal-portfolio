@@ -1,16 +1,16 @@
 import fs from "fs"
 import path from "path"
-import matter from "gray-matter"
+
+import { parseProjectDate, readMarkdownDirectory, readMarkdownFile } from "@/lib/content"
 
 const projectsDirectory = path.join(process.cwd(), "content/projects")
 
 export type Project = {
   slug: string
+  date: string
   year: string
   title: string
   description: string
-  role: string
-  result: string
   href?: string
   repo?: string
   content: string
@@ -19,28 +19,41 @@ export type Project = {
 export type ProjectMeta = Omit<Project, "content">
 
 function parseProjectFile(slug: string): Project {
-  const filePath = path.join(projectsDirectory, `${slug}.md`)
-  const fileContents = fs.readFileSync(filePath, "utf8")
-  const { data, content } = matter(fileContents)
+  const { data, content } = readMarkdownFile(`projects/${slug}.md`)
+
+  const dateRaw = data.date ?? data.year
+
+  if (!dateRaw) {
+    throw new Error(`Project "${slug}" is missing frontmatter date or year`)
+  }
+
+  const parsedDate = parseProjectDate(String(dateRaw))
 
   return {
     slug,
-    year: String(data.year),
+    date: String(dateRaw),
+    year: String(parsedDate.getUTCFullYear()),
     title: data.title,
     description: data.description,
-    role: data.role,
-    result: data.result,
     href: data.href,
     repo: data.repo,
     content: content.trim(),
   }
 }
 
+function compareProjects(a: ProjectMeta, b: ProjectMeta): number {
+  const dateDiff =
+    parseProjectDate(b.date).getTime() - parseProjectDate(a.date).getTime()
+
+  if (dateDiff !== 0) {
+    return dateDiff
+  }
+
+  return a.title.localeCompare(b.title, "ru")
+}
+
 export function getProjectSlugs(): string[] {
-  return fs
-    .readdirSync(projectsDirectory)
-    .filter((file) => file.endsWith(".md"))
-    .map((file) => file.replace(/\.md$/, ""))
+  return readMarkdownDirectory("projects")
 }
 
 export function getProjects(): ProjectMeta[] {
@@ -49,7 +62,7 @@ export function getProjects(): ProjectMeta[] {
       const { content: _, ...meta } = parseProjectFile(slug)
       return meta
     })
-    .sort((a, b) => Number(b.year) - Number(a.year))
+    .sort(compareProjects)
 }
 
 export function getProject(slug: string): Project | undefined {

@@ -1,4 +1,4 @@
-import { site } from "@/lib/site"
+import { getSite } from "@/lib/site"
 
 function ArrowIcon() {
   return (
@@ -18,12 +18,22 @@ function ArrowIcon() {
   )
 }
 
-const footerLinks = [
-  { href: `mailto:${site.links.email}`, label: "почта", external: false },
-  { href: site.links.telegram, label: "телеграм", external: true },
-] as const
-
 export function SiteFooter() {
+  const site = getSite()
+
+  const footerLinks = [
+    {
+      href: `mailto:${site.links.email}`,
+      label: site.labels.email,
+      external: false,
+    },
+    {
+      href: site.links.telegram,
+      label: site.labels.telegram,
+      external: true,
+    },
+  ] as const
+
   return (
     <footer
       id="contact"
