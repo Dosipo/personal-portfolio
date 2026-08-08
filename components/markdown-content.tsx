@@ -2,11 +2,11 @@ import Markdown from "react-markdown"
 
 export function MarkdownContent({ content }: { content: string }) {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-1.5">
       <Markdown
         components={{
           h1: ({ children }) => (
-            <h1 className="text-2xl font-semibold tracking-tighter text-foreground">
+            <h1 className="text-3xl font-semibold tracking-tight text-foreground">
               {children}
             </h1>
           ),
@@ -38,7 +38,7 @@ export function MarkdownContent({ content }: { content: string }) {
           ),
           li: ({ children }) => <li>{children}</li>,
           h2: ({ children }) => (
-            <h2 className="mt-3 text-base font-semibold tracking-tight text-foreground first:mt-0">
+            <h2 className="mt-3 text-sm font-semibold tracking-tight text-foreground first:mt-0">
               {children}
             </h2>
           ),

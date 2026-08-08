@@ -13,12 +13,12 @@ export function Projects() {
           href={`/projects/${project.slug}`}
           className="group flex flex-col transition-colors"
         >
-          <div className="flex w-full flex-col gap-2 md:flex-row">
-            <p className="w-[100px] shrink-0 tabular-nums text-muted-foreground transition-colors group-hover:text-link">
+          <div className="flex w-full gap-4">
+            <p className="w-14 shrink-0 text-sm tabular-nums text-muted-foreground transition-colors group-hover:text-link sm:w-[100px]">
               {project.year}
             </p>
-            <div className="flex flex-col gap-1">
-              <p className="tracking-tight text-foreground transition-colors group-hover:text-link">
+            <div className="flex min-w-0 flex-col gap-1">
+              <p className="text-base font-medium tracking-tight text-foreground transition-colors group-hover:text-link">
                 {project.title}
               </p>
               <p className="text-sm leading-relaxed text-muted-foreground transition-colors group-hover:text-link">

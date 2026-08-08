@@ -52,10 +52,10 @@ export default async function ProjectPage({ params }: PageProps) {
         {site.labels.back}
       </Link>
 
-      <h1 className="title mb-1 text-2xl font-semibold tracking-tighter">
+      <h1 className="mb-1 text-3xl font-semibold tracking-tight">
         {project.title}
       </h1>
-      <p className="mb-5 text-sm tabular-nums text-muted-foreground">
+      <p className="mb-6 text-sm tabular-nums text-muted-foreground">
         {project.year}
       </p>
 
@@ -72,7 +72,7 @@ export default async function ProjectPage({ params }: PageProps) {
         </div>
       ) : null}
 
-      <div>
+      <div className="text-[15px] leading-7">
         <MarkdownContent content={project.content} />
       </div>
 

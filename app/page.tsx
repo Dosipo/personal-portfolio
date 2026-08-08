@@ -7,10 +7,10 @@ export default function Page() {
 
   return (
     <section>
-      <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
+      <h1 className="mb-6 text-3xl font-semibold tracking-tight">
         {site.title}
       </h1>
-      <div className="mb-4 flex flex-col gap-4">
+      <div className="mb-4 flex flex-col gap-4 text-[15px] leading-7">
         <MarkdownContent content={site.content} />
       </div>
       <Projects />
