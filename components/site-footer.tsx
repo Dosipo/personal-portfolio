@@ -56,7 +56,7 @@ export function SiteFooter() {
           ))}
         </ul>
         <p className="shrink-0">
-          © {new Date().getFullYear()} {site.name}
+          {new Date().getFullYear()} {site.name}
         </p>
       </div>
     </footer>

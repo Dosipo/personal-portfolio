@@ -52,12 +52,12 @@ export default async function ProjectPage({ params }: PageProps) {
         {site.labels.back}
       </Link>
 
-      <h1 className="mb-1 text-3xl font-semibold tracking-tight">
-        {project.title}
-      </h1>
-      <p className="mb-6 text-sm tabular-nums text-muted-foreground">
+      <p className="mb-1 text-sm tabular-nums text-muted-foreground">
         {project.year}
       </p>
+      <h1 className="mb-6 text-3xl font-semibold tracking-tight">
+        {project.title}
+      </h1>
 
       {project.stack.length > 0 ? (
         <div className="mb-5 flex flex-col gap-2">
