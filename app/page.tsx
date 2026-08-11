@@ -1,5 +1,6 @@
 import { MarkdownContent } from "@/components/markdown-content"
 import { Projects } from "@/components/projects"
+import { TechStack } from "@/components/tech-stack"
 import { getSite } from "@/lib/site"
 
 export default function Page() {
@@ -14,6 +15,7 @@ export default function Page() {
         <MarkdownContent content={site.content} />
       </div>
       <Projects />
+      <TechStack />
     </section>
   )
 }
