@@ -1,7 +1,7 @@
 ---
 name: Даниил Осипов
 title: Портфолио
-description: Портфолио продакт-менеджера с опытом в продуктов на ИИ.
+description: Портфолио продакт-менеджера с опытом в продуктах на ИИ.
 email: Dosipovscience@gmail.com
 telegram: https://t.me/Dosipo
 labels:

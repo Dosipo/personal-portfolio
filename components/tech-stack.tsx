@@ -41,6 +41,26 @@ const stack: StackItem[] = [
   {
     tools: [
       {
+        name: "Vercel",
+        src: "/stack/vercel.svg",
+        fallback: "▲",
+      },
+      {
+        name: "Grafana",
+        src: "/stack/grafana.svg",
+        fallback: "GF",
+      },
+      {
+        name: "Git",
+        src: "/stack/git.svg",
+        fallback: "Git",
+      },
+    ],
+    description: "Деплой, контроль версий и мониторинг",
+  },
+  {
+    tools: [
+      {
         name: "Langfuse",
         src: "/stack/langfuse.png",
         fallback: "LF",
@@ -56,27 +76,12 @@ const stack: StackItem[] = [
   {
     tools: [
       {
-        name: "Vercel",
-        src: "/stack/vercel.svg",
-        fallback: "▲",
-      },
-      {
-        name: "Grafana",
-        src: "/stack/grafana.svg",
-        fallback: "GF",
-      },
-    ],
-    description: "Деплой и мониторинг продакшена",
-  },
-  {
-    tools: [
-      {
         name: "shadcn/ui",
         src: "/stack/shadcn.png",
         fallback: "UI",
       },
     ],
-    description: "Библиотека UI-компонентов для React",
+    description: "UI-компоненты для React",
   },
   {
     tools: [
