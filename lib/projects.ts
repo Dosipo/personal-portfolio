@@ -14,6 +14,7 @@ export type Project = {
   stack: string[]
   href?: string
   repo?: string
+  header?: string
   content: string
 }
 
@@ -54,6 +55,7 @@ function parseProjectFile(slug: string): Project {
     stack: parseStack(data.stack),
     href: data.href,
     repo: data.repo,
+    header: typeof data.header === "string" ? data.header : undefined,
     content: content.trim(),
   }
 }

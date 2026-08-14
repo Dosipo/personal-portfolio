@@ -3,6 +3,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { ArrowUpRightIcon, CodeIcon } from "lucide-react"
 
+import { CaseMedia } from "@/components/case-media"
 import { MarkdownContent } from "@/components/markdown-content"
 import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
@@ -58,6 +59,15 @@ export default async function ProjectPage({ params }: PageProps) {
       <h1 className="mb-6 text-3xl font-semibold tracking-tight">
         {project.title}
       </h1>
+
+      {project.header ? (
+        <CaseMedia
+          src={project.header}
+          alt={project.title}
+          className="mb-6"
+          priority
+        />
+      ) : null}
 
       {project.stack.length > 0 ? (
         <div className="mb-5 flex flex-col gap-2">

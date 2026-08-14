@@ -1,4 +1,7 @@
+import { Children, isValidElement } from "react"
 import Markdown from "react-markdown"
+
+import { CaseMedia } from "@/components/case-media"
 
 export function MarkdownContent({ content }: { content: string }) {
   return (
@@ -10,9 +13,33 @@ export function MarkdownContent({ content }: { content: string }) {
               {children}
             </h1>
           ),
-          p: ({ children }) => (
-            <p className="leading-relaxed text-foreground">{children}</p>
-          ),
+          p: ({ children }) => {
+            const items = Children.toArray(children)
+            const onlyMedia =
+              items.length === 1 &&
+              isValidElement(items[0]) &&
+              items[0].type === CaseMedia
+
+            if (onlyMedia) {
+              return items[0]
+            }
+
+            return <p className="leading-relaxed text-foreground">{children}</p>
+          },
+          img: ({ src, alt, title }) => {
+            if (!src || typeof src !== "string") {
+              return null
+            }
+
+            return (
+              <CaseMedia
+                src={src}
+                alt={alt ?? ""}
+                caption={title}
+                className="my-3"
+              />
+            )
+          },
           strong: ({ children }) => (
             <strong className="font-semibold text-foreground">{children}</strong>
           ),
