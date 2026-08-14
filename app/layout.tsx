@@ -46,10 +46,10 @@ export default function RootLayout({
         fontMono.variable
       )}
     >
-      <body className="mx-4 mt-8 max-w-xl lg:mx-auto">
+      <body className="mx-4 mt-4 max-w-xl lg:mx-auto">
         <ThemeProvider>
-          <main className="mt-6 flex min-w-0 flex-auto flex-col px-2 md:px-0">
-            <div className="-ml-2 mb-16 flex justify-end tracking-tight">
+          <main className="flex min-w-0 flex-auto flex-col px-2 md:px-0">
+            <div className="-ml-2 mb-8 flex justify-end tracking-tight">
               <ThemeToggle />
             </div>
             {children}
