@@ -10,6 +10,8 @@ export type SiteLabels = {
   code: string
   email: string
   telegram: string
+  proBono: string
+  proBonoText: string
 }
 
 export type Site = {

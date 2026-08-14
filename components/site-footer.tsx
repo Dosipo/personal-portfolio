@@ -39,25 +39,33 @@ export function SiteFooter() {
       id="contact"
       className="mt-16 scroll-mt-8 border-t border-border pt-6 pb-16"
     >
-      <div className="flex flex-col gap-4 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-        <ul className="flex flex-wrap items-center gap-x-4 gap-y-2">
-          {footerLinks.map((item) => (
-            <li key={item.label}>
-              <a
-                className="inline-flex items-center gap-2 transition-colors hover:text-link"
-                href={item.href}
-                rel={item.external ? "noopener noreferrer" : undefined}
-                target={item.external ? "_blank" : undefined}
-              >
-                <ArrowIcon />
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-        <p className="shrink-0">
-          {new Date().getFullYear()} {site.name}
-        </p>
+      <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-1">
+          <p className="text-sm text-muted-foreground">{site.labels.proBono}</p>
+          <p className="text-[15px] leading-7 text-muted-foreground">
+            {site.labels.proBonoText}
+          </p>
+        </div>
+        <div className="flex flex-col gap-4 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+          <ul className="flex flex-wrap items-center gap-x-4 gap-y-2">
+            {footerLinks.map((item) => (
+              <li key={item.label}>
+                <a
+                  className="inline-flex items-center gap-2 transition-colors hover:text-link"
+                  href={item.href}
+                  rel={item.external ? "noopener noreferrer" : undefined}
+                  target={item.external ? "_blank" : undefined}
+                >
+                  <ArrowIcon />
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <p className="shrink-0">
+            {new Date().getFullYear()} {site.name}
+          </p>
+        </div>
       </div>
     </footer>
   )

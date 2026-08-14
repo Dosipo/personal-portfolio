@@ -33,5 +33,9 @@ ${projectLinks}
 
 - Email: ${site.links.email}
 - Telegram: ${site.links.telegram}
+
+## ${site.labels.proBono}
+
+${site.labels.proBonoText}
 `
 }
