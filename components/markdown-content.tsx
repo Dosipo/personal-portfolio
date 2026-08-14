@@ -24,7 +24,9 @@ export function MarkdownContent({ content }: { content: string }) {
               return items[0]
             }
 
-            return <p className="leading-relaxed text-foreground">{children}</p>
+            return (
+              <p className="leading-relaxed text-muted-foreground">{children}</p>
+            )
           },
           img: ({ src, alt, title }) => {
             if (!src || typeof src !== "string") {
@@ -54,12 +56,12 @@ export function MarkdownContent({ content }: { content: string }) {
             </a>
           ),
           ul: ({ children }) => (
-            <ul className="list-disc space-y-1 pl-5 leading-relaxed text-foreground">
+            <ul className="list-disc space-y-1 pl-5 leading-relaxed text-muted-foreground">
               {children}
             </ul>
           ),
           ol: ({ children }) => (
-            <ol className="list-decimal space-y-1 pl-5 leading-relaxed text-foreground">
+            <ol className="list-decimal space-y-1 pl-5 leading-relaxed text-muted-foreground">
               {children}
             </ol>
           ),
