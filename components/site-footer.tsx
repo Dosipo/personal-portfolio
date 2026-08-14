@@ -47,6 +47,9 @@ export function SiteFooter() {
           </p>
         </div>
         <div className="flex flex-col gap-4 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+          <p className="shrink-0">
+            {new Date().getFullYear()} {site.name}
+          </p>
           <ul className="flex flex-wrap items-center gap-x-4 gap-y-2">
             {footerLinks.map((item) => (
               <li key={item.label}>
@@ -62,9 +65,6 @@ export function SiteFooter() {
               </li>
             ))}
           </ul>
-          <p className="shrink-0">
-            {new Date().getFullYear()} {site.name}
-          </p>
         </div>
       </div>
     </footer>
