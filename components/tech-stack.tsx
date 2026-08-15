@@ -46,6 +46,11 @@ const stack: StackItem[] = [
         fallback: "▲",
       },
       {
+        name: "Docker",
+        src: "/stack/docker.svg",
+        fallback: "Dk",
+      },
+      {
         name: "Grafana",
         src: "/stack/grafana.svg",
         fallback: "GF",
@@ -56,32 +61,42 @@ const stack: StackItem[] = [
         fallback: "Git",
       },
     ],
-    description: "Деплой, контроль версий и мониторинг",
+    description: "Контейнеры, деплой, контроль версий и мониторинг",
   },
   {
     tools: [
       {
-        name: "Langfuse",
-        src: "/stack/langfuse.png",
-        fallback: "LF",
+        name: "LangChain",
+        src: "/stack/langchain.svg",
+        fallback: "LC",
       },
       {
         name: "LangGraph",
         src: "/stack/langgraph.svg",
         fallback: "LG",
       },
+      {
+        name: "Langfuse",
+        src: "/stack/langfuse.png",
+        fallback: "LF",
+      },
     ],
-    description: "Observability и оркестрация LLM-агентов",
+    description: "Фреймворк, оркестрация и observability LLM-агентов",
   },
   {
     tools: [
+      {
+        name: "Figma",
+        src: "/stack/figma.svg",
+        fallback: "Fi",
+      },
       {
         name: "shadcn/ui",
         src: "/stack/shadcn.png",
         fallback: "UI",
       },
     ],
-    description: "UI-компоненты для React",
+    description: "Дизайн и UI-компоненты для React",
   },
   {
     tools: [

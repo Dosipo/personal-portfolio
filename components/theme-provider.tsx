@@ -12,6 +12,8 @@ export function ThemeProvider({
       attribute="class"
       defaultTheme="system"
       enableSystem
+      enableColorScheme
+      storageKey="portfolio-color-scheme"
       disableTransitionOnChange
       {...props}
     >

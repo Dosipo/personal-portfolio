@@ -3,7 +3,6 @@ import { Inter, JetBrains_Mono } from "next/font/google"
 
 import { SiteFooter } from "@/components/site-footer"
 import { ThemeProvider } from "@/components/theme-provider"
-import { ThemeToggle } from "@/components/theme-toggle"
 import { getSite } from "@/lib/site"
 import { getSiteUrl } from "@/lib/url"
 import { cn } from "@/lib/utils"
@@ -46,12 +45,9 @@ export default function RootLayout({
         fontMono.variable
       )}
     >
-      <body className="mx-4 mt-4 max-w-xl lg:mx-auto">
+      <body className="mx-4 mt-4 max-w-2xl lg:mx-auto">
         <ThemeProvider>
           <main className="flex min-w-0 flex-auto flex-col px-2 md:px-0">
-            <div className="-ml-2 mb-8 flex justify-end tracking-tight">
-              <ThemeToggle />
-            </div>
             {children}
             <SiteFooter />
           </main>

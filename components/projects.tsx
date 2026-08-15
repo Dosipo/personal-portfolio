@@ -21,7 +21,7 @@ export function Projects() {
               <p className="text-base font-medium tracking-tight text-foreground transition-colors group-hover:text-link">
                 {project.title}
               </p>
-              <p className="text-sm leading-relaxed text-muted-foreground transition-colors group-hover:text-link">
+              <p className="max-w-md text-sm leading-relaxed text-muted-foreground transition-colors group-hover:text-link">
                 {project.description}
               </p>
             </div>
