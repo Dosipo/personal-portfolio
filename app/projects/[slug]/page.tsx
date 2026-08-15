@@ -29,9 +29,23 @@ export async function generateMetadata({
     return {}
   }
 
+  const site = getSite()
+
   return {
     title: project.title,
     description: project.description,
+    openGraph: {
+      title: project.title,
+      description: project.description,
+      locale: "ru_RU",
+      type: "article",
+      siteName: site.name,
+    },
+    twitter: {
+      card: "summary",
+      title: project.title,
+      description: project.description,
+    },
   }
 }
 
