@@ -11,7 +11,7 @@ export default function Page() {
       <h1 className="mb-6 text-3xl font-semibold tracking-tight">
         {site.title}
       </h1>
-      <div className="mb-4 flex flex-col gap-4 text-[15px] leading-7">
+      <div className="mb-4 text-sm">
         <MarkdownContent content={site.content} />
       </div>
       <Projects />

@@ -45,7 +45,7 @@ export default function RootLayout({
         fontMono.variable
       )}
     >
-      <body className="mx-4 mt-4 max-w-2xl lg:mx-auto">
+      <body className="mx-4 mt-12 max-w-2xl lg:mx-auto">
         <ThemeProvider>
           <main className="flex min-w-0 flex-auto flex-col px-2 md:px-0">
             {children}
